@@ -9,7 +9,7 @@ after_success:
 - go get github.com/axw/gocov/gocov
 - go get github.com/mattn/goveralls
 - export PATH=$PATH:$HOME/gopath/bin/
-- goveralls $COVERALLS_TOKEN
+- goveralls -v ./... $COVERALLS_TOKEN
 env:
   global:
     secure: MzN2mEspBQbQwiqLUSS6zagXTq6hnre5N+X4XyMqrlstmrNxJUycW6vGeoeDkbs/znr/BFfX7wezvnop7IlellEsEm8VV6t4taqajLpdWRsM0fjV0U7CDpdrdrBuQ+7cT+qpWkvF8i9TnjMEjG2veEz+THXllEI6Jt8w+KP9c6Y=
