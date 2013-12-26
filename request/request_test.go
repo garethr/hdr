@@ -1,15 +1,15 @@
 package request
 
 import (
-  "testing"
-  "github.com/bmizerany/assert"
+	"github.com/bmizerany/assert"
+	"testing"
 )
 
 func ExampleSend() {
-  Send()
+	Send()
 	// Output: hdr request
 }
 
 func TestSample(t *testing.T) {
-  assert.Equal(t, 1, 1)
+	assert.Equal(t, 1, 1)
 }

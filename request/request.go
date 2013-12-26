@@ -5,5 +5,5 @@ import "fmt"
 
 // Send pretends to make a request
 func Send() {
-  fmt.Println("hdr request")
+	fmt.Println("hdr request")
 }
