@@ -30,7 +30,8 @@ format:
 
 coverage:
 	@echo "$(OK_COLOR)==> Record coverage with coveralls.io$(NO_COLOR)"
-	goveralls -coverprofile=c.out -service=travis $COVERALLS_TOKEN
+	$(HOME)/gopath/bin/goveralls -coverprofile=c.out -service=travis $(COVERALLS_TOKEN)
 
-.PHONY: all default deps test build format
+
+.PHONY: all default deps test build format coverage
 .SILENT: deps test clean
