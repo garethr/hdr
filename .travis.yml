@@ -1,18 +1,13 @@
 language: go
 go:
-- 1.1
 - 1.2
-before_script:
-- go get github.com/bmizerany/assert
+install: cat BUILD_DEPENDENCIES | xargs -I{} go get -v {}
 script:
 - go test github.com/garethr/hdr -coverprofile=c.out
 - go test github.com/garethr/hdr/request -coverprofile=c.out
 after_success:
-- go get code.google.com/p/go.tools/cmd/cover
-- go get github.com/axw/gocov/gocov
 - go get github.com/mattn/goveralls
-- export PATH=$PATH:$HOME/gopath/bin/
-- goveralls -coverprofile=c.out -service=travis $COVERALLS_TOKEN
+- $HOME/gopath/bin/goveralls -coverprofile=c.out -service=travis $COVERALLS_TOKEN
 env:
   global:
     secure: MzN2mEspBQbQwiqLUSS6zagXTq6hnre5N+X4XyMqrlstmrNxJUycW6vGeoeDkbs/znr/BFfX7wezvnop7IlellEsEm8VV6t4taqajLpdWRsM0fjV0U7CDpdrdrBuQ+7cT+qpWkvF8i9TnjMEjG2veEz+THXllEI6Jt8w+KP9c6Y=
