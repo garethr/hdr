@@ -1,3 +1,4 @@
+// This is the main package for the `hdr` application.
 package main
 
 import (
