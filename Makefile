@@ -28,5 +28,9 @@ format:
 	@echo "$(WARN_COLOR)==> Format Go source code$(NO_COLOR)"
 	@go fmt ./...
 
+coverage:
+	@echo "$(OK_COLOR)==> Record coverage with coveralls.io$(NO_COLOR)"
+	goveralls -coverprofile=c.out -service=travis $COVERALLS_TOKEN
+
 .PHONY: all default deps test build format
 .SILENT: deps test clean
