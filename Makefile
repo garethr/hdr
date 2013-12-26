@@ -13,16 +13,20 @@ test: deps
 	done
 
 build: deps
-	go build
+	@echo "$(OK_COLOR)==> Build binaries$(NO_COLOR)"
+	@go build
 
 deps:
 	@echo "$(OK_COLOR)==> Installing dependencies$(NO_COLOR)"
 	cat BUILD_DEPENDENCIES | xargs -I{} go get -v {}
 
 clean:
+	@echo "$(WARN_COLOR)==> Delete temporary files$(NO_COLOR)"
 	rm -f c.out hdr
 
 format:
-	go fmt ./...
+	@echo "$(WARN_COLOR)==> Format Go source code$(NO_COLOR)"
+	@go fmt ./...
 
-.PHONY: all default deps test build
+.PHONY: all default deps test build format
+.SILENT: deps test clean
